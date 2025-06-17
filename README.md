@@ -1,4 +1,5 @@
 <img width="1024" alt="Screenshot 2025-06-18 at 1 43 10 AM" src="https://github.com/user-attachments/assets/234f078b-641d-411f-bba2-4a7781f699b3" />
+
 # JigsawStack n8n Node
 
 This n8n node provides integration with JigsawStack's powerful AI and data processing APIs. It allows you to easily incorporate various AI capabilities into your n8n workflows.
