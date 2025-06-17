@@ -79,8 +79,6 @@ To use this node, you need to:
 
 For support with this node:
 - Open an issue on [GitHub](https://github.com/jigsawstack/n8n-nodes-jigsawstack)
-- Contact JigsawStack support at support@jigsawstack.com
 
-## License
 
 [MIT](LICENSE.md)
