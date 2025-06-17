@@ -11,6 +11,7 @@ import { Spam } from './validate/spam';
 import { Summary } from './coreai/summary';
 import { Prediction } from './data/prediction';
 import { TextToSql } from './data/texttosql';
+import { WebSuggestion } from './websearch/websuggestion';
 
 export const resources = [
     ...TranslateText,   
@@ -26,4 +27,5 @@ export const resources = [
     ...Summary,
     ...Prediction,
     ...TextToSql,
-];
+    ...WebSuggestion,
+];      
