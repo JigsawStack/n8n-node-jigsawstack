@@ -8,6 +8,7 @@ import { WebSearch } from './resources/websearch';
 import { Embedding } from './resources/embedding';
 import { Sentiment } from './resources/sentiment';
 import { TTS } from './resources/tts';
+import { Image } from './resources/image';
 
 export class JigsawStack implements INodeType {
   description: INodeTypeDescription = {
@@ -55,6 +56,7 @@ export class JigsawStack implements INodeType {
           { name: 'Generate Embedding', value: 'generate-embedding' },
           { name: 'Analyze Sentiment', value: 'analyze-sentiment' },
           { name: 'Text to Speech', value: 'text-to-speech' },
+          { name: 'Image Generation', value: 'image-generation' },
         ],
         default: 'translate-text',
       },
@@ -63,6 +65,7 @@ export class JigsawStack implements INodeType {
       ...Embedding,
       ...Sentiment,
       ...TTS,
+      ...Image,
     ],
   };
 }
