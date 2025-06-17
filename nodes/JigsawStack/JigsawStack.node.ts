@@ -56,6 +56,7 @@ export class JigsawStack implements INodeType {
           { name: 'Profanity Detection', value: 'profanity-detection' },
           { name: 'Spell Check', value: 'spell-check' },
           { name: 'Spam Detection', value: 'spam-detection' },
+          { name: 'Summary', value: 'summary' },
         ],
         default: 'translate-text',
       },
