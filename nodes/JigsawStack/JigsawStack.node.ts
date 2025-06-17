@@ -9,8 +9,10 @@ import { Embedding } from './resources/embedding';
 import { Sentiment } from './resources/sentiment';
 import { TTS } from './resources/tts';
 import { Image } from './resources/image';
-import { NSFW } from './resources/nsfw';
-import { Profanity } from './resources/profanity';
+import { NSFW } from './resources/validate/nsfw';
+import { Profanity } from './resources/validate/profanity';
+import { Spell } from './resources/validate/spell';
+
 export class JigsawStack implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'JigsawStack',
@@ -60,6 +62,7 @@ export class JigsawStack implements INodeType {
           { name: 'Image Generation', value: 'image-generation' },
           { name: 'NSFW Detection', value: 'nsfw-detection' },
           { name: 'Profanity Detection', value: 'profanity-detection' },
+          { name: 'Spell Check', value: 'spell-check' },
         ],
         default: 'translate-text',
       },
@@ -71,6 +74,7 @@ export class JigsawStack implements INodeType {
       ...Image,
       ...NSFW,
       ...Profanity,
+      ...Spell,
     ],
   };
 }
