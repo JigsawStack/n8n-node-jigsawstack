@@ -1,48 +1,84 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# JigsawStack n8n Node
 
-# n8n-nodes-starter
+This n8n node provides integration with JigsawStack's powerful AI and data processing APIs. It allows you to easily incorporate various AI capabilities into your n8n workflows.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
+## Features
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+The JigsawStack node supports the following operations:
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+- **Text Processing**
+  - Translate text between languages
+  - Generate text embeddings
+  - Analyze sentiment
+  - Check spelling
+  - Detect profanity
+  - Generate text summaries
+  - Convert natural language to SQL queries
+
+- **Speech & Audio**
+  - Text to Speech conversion
+
+- **Image Processing**
+  - Generate images
+  - Process images
+  - Detect objects in images
+  - NSFW content detection
+
+- **Web & Data**
+  - Web search
+  - AI-powered web scraping
+  - Web suggestions
+  - Spam detection
+
+- **AI & Machine Learning**
+  - Make predictions
+  - Generate embeddings
 
 ## Prerequisites
 
-You need the following installed on your development machine:
+- n8n instance (self-hosted or cloud)
+- JigsawStack API key
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+## Installation
 
-## Using this starter
-
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
-
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
+1. Install the node in your n8n instance:
+   ```bash
+   npm install n8n-nodes-jigsawstack
    ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
 
-## More information
+2. Restart your n8n instance
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+## Authentication
+
+To use this node, you need to:
+
+1. Sign up for a JigsawStack account at [jigsawstack.com](https://jigsawstack.com)
+2. Get your API key from the JigsawStack dashboard
+3. In n8n, add your JigsawStack credentials:
+   - Go to Settings > Credentials
+   - Click "New"
+   - Select "JigsawStack API"
+   - Enter your API key
+
+## Usage
+
+1. Add the JigsawStack node to your workflow
+2. Select the desired operation from the Resource dropdown
+3. Configure the operation-specific parameters
+4. Connect the node to other nodes in your workflow
+
+## Resources
+
+- [JigsawStack Documentation](https://docs.jigsawstack.com)
+- [n8n Documentation](https://docs.n8n.io)
+- [n8n Community](https://community.n8n.io)
+
+## Support
+
+For support with this node:
+- Open an issue on [GitHub](https://github.com/jigsawstack/n8n-nodes-jigsawstack)
+- Contact JigsawStack support at support@jigsawstack.com
 
 ## License
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+[MIT](LICENSE.md)
