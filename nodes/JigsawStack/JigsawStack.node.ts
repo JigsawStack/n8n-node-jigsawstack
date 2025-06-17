@@ -3,15 +3,7 @@ import {
   INodeTypeDescription,
   NodeConnectionType,
 } from 'n8n-workflow';
-import { Translate } from './resources/translate';
-import { WebSearch } from './resources/websearch';
-import { Embedding } from './resources/embedding';
-import { Sentiment } from './resources/sentiment';
-import { TTS } from './resources/tts';
-import { Image } from './resources/image';
-import { NSFW } from './resources/validate/nsfw';
-import { Profanity } from './resources/validate/profanity';
-import { Spell } from './resources/validate/spell';
+import { resources } from './resources';
 
 export class JigsawStack implements INodeType {
   description: INodeTypeDescription = {
@@ -63,18 +55,11 @@ export class JigsawStack implements INodeType {
           { name: 'NSFW Detection', value: 'nsfw-detection' },
           { name: 'Profanity Detection', value: 'profanity-detection' },
           { name: 'Spell Check', value: 'spell-check' },
+          { name: 'Spam Detection', value: 'spam-detection' },
         ],
         default: 'translate-text',
       },
-      ...Translate,
-      ...WebSearch,
-      ...Embedding,
-      ...Sentiment,
-      ...TTS,
-      ...Image,
-      ...NSFW,
-      ...Profanity,
-      ...Spell,
+      ...resources,
     ],
   };
 }

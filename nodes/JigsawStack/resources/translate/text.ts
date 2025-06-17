@@ -1,9 +1,9 @@
 import {
 	INodeProperties,
 } from 'n8n-workflow';
-import { returnResponse } from '../utils';
+import { returnResponse } from '../../utils';
 
-export const Translate: INodeProperties[] = [
+export const TranslateText: INodeProperties[] = [
 	{
 		displayName: 'Operation',
 		name: 'operation',
