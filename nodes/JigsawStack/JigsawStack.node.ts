@@ -10,7 +10,7 @@ import { Sentiment } from './resources/sentiment';
 import { TTS } from './resources/tts';
 import { Image } from './resources/image';
 import { NSFW } from './resources/nsfw';
-  
+import { Profanity } from './resources/profanity';
 export class JigsawStack implements INodeType {
   description: INodeTypeDescription = {
     displayName: 'JigsawStack',
@@ -59,6 +59,7 @@ export class JigsawStack implements INodeType {
           { name: 'Text to Speech', value: 'text-to-speech' },
           { name: 'Image Generation', value: 'image-generation' },
           { name: 'NSFW Detection', value: 'nsfw-detection' },
+          { name: 'Profanity Detection', value: 'profanity-detection' },
         ],
         default: 'translate-text',
       },
@@ -69,6 +70,7 @@ export class JigsawStack implements INodeType {
       ...TTS,
       ...Image,
       ...NSFW,
+      ...Profanity,
     ],
   };
 }
