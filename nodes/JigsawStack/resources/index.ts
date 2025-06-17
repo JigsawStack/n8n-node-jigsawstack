@@ -9,6 +9,7 @@ import { Profanity } from './validate/profanity';
 import { Spell } from './validate/spell';
 import { Spam } from './validate/spam';
 import { Summary } from './coreai/summary';
+import { Prediction } from './data/prediction';
 
 export const resources = [
     ...TranslateText,   
@@ -22,4 +23,5 @@ export const resources = [
     ...Spell,
     ...Spam,
     ...Summary,
+    ...Prediction,
 ];
