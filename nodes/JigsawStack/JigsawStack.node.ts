@@ -58,6 +58,7 @@ export class JigsawStack implements INodeType {
           { name: 'Spam Detection', value: 'spam-detection' },
           { name: 'Summary', value: 'summary' },
           { name: 'Make Prediction', value: 'make-prediction' },
+          { name: 'Convert to SQL', value: 'convert-to-sql' },
         ],
         default: 'translate-text',
       },

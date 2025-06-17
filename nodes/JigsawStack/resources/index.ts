@@ -10,6 +10,7 @@ import { Spell } from './validate/spell';
 import { Spam } from './validate/spam';
 import { Summary } from './coreai/summary';
 import { Prediction } from './data/prediction';
+import { TextToSql } from './data/texttosql';
 
 export const resources = [
     ...TranslateText,   
@@ -24,4 +25,5 @@ export const resources = [
     ...Spam,
     ...Summary,
     ...Prediction,
+    ...TextToSql,
 ];
