@@ -61,6 +61,7 @@ export class JigsawStack implements INodeType {
           { name: 'Convert to SQL', value: 'convert-to-sql' },
           { name: 'Web Suggestion', value: 'web-suggestion' },
           { name: 'AI Scrape', value: 'ai-scrape' },
+          { name: 'Process Image', value: 'process-image' },
         ],
         default: 'translate-text',
       },

@@ -13,6 +13,7 @@ import { Prediction } from './data/prediction';
 import { TextToSql } from './data/texttosql';
 import { WebSuggestion } from './websearch/websuggestion';
 import { WebScrape } from './scrape/webscrape';
+import { Vocr } from './vision/vocr';
 
 export const resources = [
     ...TranslateText,   
@@ -30,4 +31,5 @@ export const resources = [
     ...TextToSql,
     ...WebSuggestion,
     ...WebScrape,
+    ...Vocr,
 ];      
