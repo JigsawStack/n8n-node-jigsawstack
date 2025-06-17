@@ -62,6 +62,7 @@ export class JigsawStack implements INodeType {
           { name: 'Web Suggestion', value: 'web-suggestion' },
           { name: 'AI Scrape', value: 'ai-scrape' },
           { name: 'Process Image', value: 'process-image' },
+          { name: 'Object Detection', value: 'object-detection' },
         ],
         default: 'translate-text',
       },

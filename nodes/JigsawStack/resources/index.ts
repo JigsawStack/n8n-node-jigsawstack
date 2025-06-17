@@ -14,6 +14,7 @@ import { TextToSql } from './data/texttosql';
 import { WebSuggestion } from './websearch/websuggestion';
 import { WebScrape } from './scrape/webscrape';
 import { Vocr } from './vision/vocr';
+import { ObjectDetection } from './vision/objectdetection';
 
 export const resources = [
     ...TranslateText,   
@@ -32,4 +33,5 @@ export const resources = [
     ...WebSuggestion,
     ...WebScrape,
     ...Vocr,
+    ...ObjectDetection,
 ];      
