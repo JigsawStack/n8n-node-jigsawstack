@@ -60,6 +60,7 @@ export class JigsawStack implements INodeType {
           { name: 'Make Prediction', value: 'make-prediction' },
           { name: 'Convert to SQL', value: 'convert-to-sql' },
           { name: 'Web Suggestion', value: 'web-suggestion' },
+          { name: 'AI Scrape', value: 'ai-scrape' },
         ],
         default: 'translate-text',
       },

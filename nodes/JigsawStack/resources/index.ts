@@ -12,6 +12,7 @@ import { Summary } from './coreai/summary';
 import { Prediction } from './data/prediction';
 import { TextToSql } from './data/texttosql';
 import { WebSuggestion } from './websearch/websuggestion';
+import { WebScrape } from './scrape/webscrape';
 
 export const resources = [
     ...TranslateText,   
@@ -28,4 +29,5 @@ export const resources = [
     ...Prediction,
     ...TextToSql,
     ...WebSuggestion,
+    ...WebScrape,
 ];      
