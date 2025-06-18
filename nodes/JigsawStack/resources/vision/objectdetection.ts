@@ -1,9 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
 } from 'n8n-workflow';
+import { returnResponse } from '../../utils';
 
 export const ObjectDetection: INodeProperties[] = [
     {
@@ -41,7 +39,7 @@ export const ObjectDetection: INodeProperties[] = [
         ],
         default: 'object-detection',
     },
-    
+
     {
         displayName: 'Image Source',
         name: 'imageSource',
@@ -69,7 +67,7 @@ export const ObjectDetection: INodeProperties[] = [
         displayName: 'Image URL',
         name: 'url',
         type: 'string',
-        required: true,
+        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -83,7 +81,7 @@ export const ObjectDetection: INodeProperties[] = [
         displayName: 'File Store Key',
         name: 'file_store_key',
         type: 'string',
-        required: true,
+        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -94,7 +92,3 @@ export const ObjectDetection: INodeProperties[] = [
         description: 'The key used to store the image on Jigsawstack File Storage',
     },
 ];
-
-async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-    return items.map(() => ({ json: responseData.body }));
-}
