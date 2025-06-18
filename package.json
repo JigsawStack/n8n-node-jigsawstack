@@ -5,7 +5,9 @@
   "keywords": ["n8n-community-node-package", "n8n-node", "n8n-node-package", "n8n-node-package-jigsawstack", "jigsawstack"],
   "license": "MIT",
   "homepage": "https://jigsawstack.com",
-  "author": "JigsawStack",
+  "author": {
+    "name": "JigsawStack"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/JigsawStack/n8n-integration.git"
@@ -36,7 +38,7 @@
     "prettier": "^3.5.3",
     "typescript": "~5.3.3"
   },
-  "dependencies": {
+  "peerDependencies": {
     "n8n-workflow": "*"
   }
 }

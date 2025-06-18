@@ -3,7 +3,7 @@ import {
   INodeProperties,
 } from 'n8n-workflow';
 
-export class JigsawStack implements ICredentialType {
+export class JigsawStackApi implements ICredentialType {
   name = 'jigsawStackApi';
   displayName = 'JigsawStack API';
   documentationUrl = 'https://jigsawstack.com/docs';

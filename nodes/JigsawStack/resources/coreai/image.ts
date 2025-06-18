@@ -8,6 +8,7 @@ export const Image: INodeProperties[] = [
     displayName: 'Operation',
     name: 'operation',
     type: 'options',
+				noDataExpression: true,
     displayOptions: {
       show: {
         resource: ['image-generation'],
@@ -18,7 +19,7 @@ export const Image: INodeProperties[] = [
       {
         name: 'Image Generation',
         value: 'image-generation',
-        action: 'Generate Image',
+        action: 'Generate image',
         description: 'Generate an image using JigsawStack AI',
         routing: {
           request: {
@@ -71,15 +72,15 @@ export const Image: INodeProperties[] = [
     },
     options: [
       {
-        name: "base64",
+        name: 'Base64',
         value: "base64",
       },
       {
-        name: "url",
+        name: 'Url',
         value: "url",
       },
       {
-        name: "binary",
+        name: 'Binary',
         value: "binary",
       },
     ],
@@ -92,13 +93,13 @@ export const Image: INodeProperties[] = [
     options: [
       { name: '1:1', value: '1:1' },
       { name: '16:9', value: '16:9' },
+      { name: '2:3', value: '2:3' },
       { name: '21:9', value: '21:9' },
       { name: '3:2', value: '3:2' },
-      { name: '2:3', value: '2:3' },
-      { name: '4:5', value: '4:5' },
-      { name: '5:4', value: '5:4' },
       { name: '3:4', value: '3:4' },
       { name: '4:3', value: '4:3' },
+      { name: '4:5', value: '4:5' },
+      { name: '5:4', value: '5:4' },
       { name: '9:16', value: '9:16' },
       { name: '9:21', value: '9:21' },
     ],

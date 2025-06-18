@@ -82,7 +82,6 @@ export const HtmlToAny: INodeProperties[] = [
         displayName: 'URL',
         name: 'url',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -90,13 +89,12 @@ export const HtmlToAny: INodeProperties[] = [
                 contentSource: ['url'],
             },
         },
-        description: 'The URL of the webpage to capture. Either html or url is required, but not both.',
+        description: 'The URL of the webpage to capture. Either html or URL is required, but not both.',
     },
     {
         displayName: 'HTML',
         name: 'html',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -104,7 +102,7 @@ export const HtmlToAny: INodeProperties[] = [
                 contentSource: ['html'],
             },
         },
-        description: 'The HTML content to convert to image or PDF. Either html or url is required, but not both.',
+        description: 'The HTML content to convert to image or PDF. Either html or URL is required, but not both.',
     },
     {
         displayName: 'Output Type',
@@ -145,7 +143,6 @@ export const HtmlToAny: INodeProperties[] = [
         displayName: 'Quality',
         name: 'quality',
         type: 'number',
-        required: false,
         default: 75,
         displayOptions: {
             show: {
@@ -159,20 +156,18 @@ export const HtmlToAny: INodeProperties[] = [
         displayName: 'Full Page',
         name: 'full_page',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
-        description: 'When set to true, captures the entire scrollable area of the page instead of just the viewport.',
+        description: 'Whether to capture the entire scrollable area of the page instead of just the viewport',
     },
     {
         displayName: 'Omit Background',
         name: 'omit_background',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
@@ -180,39 +175,36 @@ export const HtmlToAny: INodeProperties[] = [
                 type: ['png'],
             },
         },
-        description: 'When set to true, makes the background transparent for PNG format images.',
+        description: 'Whether to make the background transparent for PNG format images',
     },
     {
         displayName: 'Width',
         name: 'width',
         type: 'number',
-        required: false,
         default: 1920,
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
-        description: 'The width of the viewport in pixels.',
+        description: 'The width of the viewport in pixels',
     },
     {
         displayName: 'Height',
         name: 'height',
         type: 'number',
-        required: false,
         default: 1080,
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
-        description: 'The height of the viewport in pixels.',
+        description: 'The height of the viewport in pixels',
     },
     {
         displayName: 'Scale',
         name: 'scale',
         type: 'number',
-        required: false,
         default: 1,
         displayOptions: {
             show: {
@@ -225,85 +217,79 @@ export const HtmlToAny: INodeProperties[] = [
         displayName: 'Size Preset',
         name: 'size_preset',
         type: 'options',
-        required: false,
-        default: '',
+        default: 'QVGA',
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
         options: [
-            { name: 'QVGA', value: 'QVGA', description: '320×240' },
-            { name: 'VGA', value: 'VGA', description: '640×480' },
-            { name: 'SVGA', value: 'SVGA', description: '800×600' },
-            { name: 'HD', value: 'HD', description: '1280×720' },
-            { name: 'HD+', value: 'HD+', description: '1600×900' },
-            { name: 'SXGA', value: 'SXGA', description: '1280×1024' },
-            { name: 'FHD', value: 'FHD', description: '1920×1080' },
             { name: '2K', value: '2K', description: '2048×1080' },
             { name: '2K QHD', value: '2K QHD', description: '2560×1440' },
-            { name: '5K', value: '5K', description: '5120×2880' },
             { name: '4K UHD', value: '4K UHD', description: '3840×2160' },
+            { name: '5K', value: '5K', description: '5120×2880' },
+            { name: 'FHD', value: 'FHD', description: '1920×1080' },
+            { name: 'HD', value: 'HD', description: '1280×720' },
+            { name: 'HD+', value: 'HD+', description: '1600×900' },
+            { name: 'QVGA', value: 'QVGA', description: '320×240' },
+            { name: 'SVGA', value: 'SVGA', description: '800×600' },
+            { name: 'SXGA', value: 'SXGA', description: '1280×1024' },
+            { name: 'VGA', value: 'VGA', description: '640×480' },
         ],
-        description: 'Predefined screen size preset to use instead of specifying width and height manually.',
+        description: 'Predefined screen size preset to use instead of specifying width and height manually',
     },
     {
         displayName: 'Is Mobile',
         name: 'is_mobile',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
-        description: 'When set to true, emulates a mobile device viewport and takes the meta viewport tag into account.',
+        description: 'Whether to emulate a mobile device viewport and take the meta viewport tag into account',
     },
     {
         displayName: 'Dark Mode',
         name: 'dark_mode',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
-        description: 'When set to true, forces the page to render in dark mode using the CSS prefers-color-scheme media feature.',
+        description: 'Whether to force the page to render in dark mode using the CSS prefers-color-scheme media feature',
     },
     {
         displayName: 'Use Graphic Renderer',
         name: 'use_graphic_renderer',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
-        description: 'Enables WebGL, GPU acceleration, and other 3D APIs. Note: This option may impact performance and increase API latency.',
+        description: 'Whether to enable WebGL, GPU acceleration, and other 3D APIs. Note: This option may impact performance and increase API latency.',
     },
     {
         displayName: 'Goto Options',
         name: 'goto_options',
         type: 'json',
-        required: false,
         default: '',
         displayOptions: {
             show: {
                 operation: ['html-to-any'],
             },
         },
-        description: 'Custom page-load behavior settings (timeout, wait_until). Example: {"timeout": 15000, "wait_until": "networkidle0"}',
+        description: 'Custom page-load behavior settings (timeout, wait_until). Example: {"timeout": 15000, "wait_until": "networkidle0"}.',
     },
     {
         displayName: 'PDF Display Header Footer',
         name: 'pdf_display_header_footer',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
@@ -311,13 +297,12 @@ export const HtmlToAny: INodeProperties[] = [
                 type: ['pdf'],
             },
         },
-        description: 'When set to true, displays header and footer in PDF output. Only applies when type is set to pdf.',
+        description: 'Whether to display header and footer in PDF output. Only applies when type is set to pdf.',
     },
     {
         displayName: 'PDF Print Background',
         name: 'pdf_print_background',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
@@ -325,13 +310,12 @@ export const HtmlToAny: INodeProperties[] = [
                 type: ['pdf'],
             },
         },
-        description: 'When set to true, prints background graphics in PDF output. Only applies when type is set to pdf.',
+        description: 'Whether to print background graphics in PDF output. Only applies when type is set to pdf.',
     },
     {
         displayName: 'PDF Page Range',
         name: 'pdf_page_range',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -353,15 +337,15 @@ export const HtmlToAny: INodeProperties[] = [
         },
         options: [
             {
-                name: "base64",
+                name: 'Base64',
                 value: "base64",
             },
             {
-                name: "url",
+                name: 'Url',
                 value: "url",
             },
             {
-                name: "binary",
+                name: 'Binary',
                 value: "binary",
             },
         ],

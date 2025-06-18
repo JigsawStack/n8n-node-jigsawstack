@@ -82,7 +82,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'URL',
         name: 'url',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -90,13 +89,12 @@ export const WebScrape: INodeProperties[] = [
                 scrapeSource: ['url'],
             },
         },
-        description: 'URL of the page to scrape. Either url or html is required, but not both.',
+        description: 'URL of the page to scrape. Either URL or html is required, but not both.',
     },
     {
         displayName: 'HTML',
         name: 'html',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -104,7 +102,7 @@ export const WebScrape: INodeProperties[] = [
                 scrapeSource: ['html'],
             },
         },
-        description: 'HTML content to scrape. Either url or html is required, but not both.',
+        description: 'HTML content to scrape. Either URL or html is required, but not both.',
     },
     {
         displayName: 'Element Prompts',
@@ -127,7 +125,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Root Element Selector',
         name: 'root_element_selector',
         type: 'string',
-        required: false,
         default: 'main',
         displayOptions: {
             show: {
@@ -140,7 +137,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Page Position',
         name: 'page_position',
         type: 'number',
-        required: false,
         default: 1,
         displayOptions: {
             show: {
@@ -165,7 +161,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Http Headers',
         name: 'http_headers',
         type: 'json',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -182,7 +177,6 @@ export const WebScrape: INodeProperties[] = [
             multipleValues: true,
             multipleValueButtonText: 'Add Reject Request Pattern',
         },
-        required: false,
         default: [],
         displayOptions: {
             show: {
@@ -195,7 +189,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Goto Options',
         name: 'goto_options',
         type: 'json',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -208,7 +201,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Wait For',
         name: 'wait_for',
         type: 'json',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -221,7 +213,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Cookies',
         name: 'cookies',
         type: 'json',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -234,7 +225,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Size Preset',
         name: 'size_preset',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -247,7 +237,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Is Mobile',
         name: 'is_mobile',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
@@ -260,7 +249,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Scale',
         name: 'scale',
         type: 'number',
-        required: false,
         default: 1,
         displayOptions: {
             show: {
@@ -273,7 +261,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Width',
         name: 'width',
         type: 'number',
-        required: false,
         default: 1920,
         displayOptions: {
             show: {
@@ -286,7 +273,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Height',
         name: 'height',
         type: 'number',
-        required: false,
         default: 1080,
         displayOptions: {
             show: {
@@ -299,7 +285,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'Force Rotate Proxy',
         name: 'force_rotate_proxy',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
@@ -312,7 +297,6 @@ export const WebScrape: INodeProperties[] = [
         displayName: 'BYO Proxy',
         name: 'byo_proxy',
         type: 'json',
-        required: false,
         default: '',
         displayOptions: {
             show: {

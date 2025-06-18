@@ -19,7 +19,7 @@ import { returnResponse } from '../../utils';
           name: 'Make Prediction',
           value: 'make-prediction',
           action: 'Make prediction',
-          description: 'Forecast a wide range of time series data in seconds with one simple API and no data training.',
+          description: 'Forecast a wide range of time series data in seconds with one simple API and no data training',
           routing: {
             request: {
               method: 'POST',
@@ -66,7 +66,7 @@ import { returnResponse } from '../../utils';
           operation: ['make-prediction'],
         },
       },
-      description: 'Number of predictions to make. Minimum: 1, Maximum: 500',
+      description: 'Number of predictions to make. Minimum: 1, Maximum: 500.',
       typeOptions: {
         minValue: 1,
         maxValue: 500,

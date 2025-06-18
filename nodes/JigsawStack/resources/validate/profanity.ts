@@ -18,7 +18,7 @@ export const Profanity: INodeProperties[] = [
             {
                 name: 'Profanity Detection',
                 value: 'profanity-detection',
-                action: 'Profanity Detection',
+                action: 'Profanity detection',
                 description: 'Detect if the text or content is profane',
                 routing: {
                     request: {
@@ -43,7 +43,7 @@ export const Profanity: INodeProperties[] = [
         name: 'text',
         type: 'string',
         required: true,
-        default: [],
+        default: '',
         displayOptions: {
             show: {
                 operation: ['profanity-detection'],
@@ -52,10 +52,9 @@ export const Profanity: INodeProperties[] = [
         description: 'The text to validate',
     },
     {
-        displayName: 'censor_replacement',
+        displayName: 'Censor_replacement',
         name: 'censor_replacement',
         type: 'string',
-        required: false,
         default: '*',
         displayOptions: {
             show: {

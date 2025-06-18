@@ -17,7 +17,7 @@ import {
         {
           name: 'Spam Detection',
           value: 'spam-detection',
-          action: 'Spam Detection',
+          action: 'Spam detection',
           description: 'Detect if the text or content is spam',
           routing: {
             request: {
@@ -51,7 +51,7 @@ import {
           operation: ['spam-detection'],
         },
       },
-      description: 'The text to check for spam.',
+      description: 'The text to check for spam',
     },
     
   ];

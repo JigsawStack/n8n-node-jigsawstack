@@ -1,10 +1,10 @@
 import { JigsawStack } from './JigsawStack/JigsawStack.node';
-import { JigsawStack as JigsawStackCredential } from '../credentials/JigsawStack.credentials';
+import { JigsawStackApi } from '../credentials/JigsawStackApi.credentials';
 
 export const nodes = [
   JigsawStack,
 ];
 
 export const credentials = [
-  JigsawStackCredential,
+  JigsawStackApi,
 ];

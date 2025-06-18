@@ -42,7 +42,7 @@ import {
       name: 'url',
       type: 'string',
       required: true,
-      default: [],
+      default: '',
       displayOptions: {
         show: {
           operation: ['nsfw-detection'],

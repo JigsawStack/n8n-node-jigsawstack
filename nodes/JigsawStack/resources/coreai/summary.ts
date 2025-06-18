@@ -74,21 +74,19 @@ export const Summary: INodeProperties[] = [
         displayName: 'Text',
         name: 'text',
         type: 'string',
-        required: false,
-        default: [],
+        default: '',
         displayOptions: {
             show: {
                 operation: ['summary'],
                 summarySource: ['text'],
             },
         },
-        description: 'The text content to summarize. Maximum 300,000 characters. Not required if url or file_store_key is specified.',
+        description: 'The text content to summarize. Maximum 300,000 characters. Not required if URL or file_store_key is specified.',
     },
     {
         displayName: 'URL',
         name: 'url',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -102,7 +100,6 @@ export const Summary: INodeProperties[] = [
         displayName: 'File Store Key',
         name: 'file_store_key',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -110,13 +107,12 @@ export const Summary: INodeProperties[] = [
                 summarySource: ['file_store_key'],
             },
         },
-        description: 'The key of a stored document to summarize from Jigsawstack File Storage. Not required if text or url is provided.',
+        description: 'The key of a stored document to summarize from Jigsawstack File Storage. Not required if text or URL is provided.',
     },
     {
         displayName: 'Type',
         name: 'type',
         type: 'options',
-        required: false,
         default: 'text',
         options: [
             {
@@ -141,7 +137,6 @@ export const Summary: INodeProperties[] = [
         displayName: 'Max Points',
         name: 'max_points',
         type: 'number',
-        required: false,
         default: 2,
         typeOptions: {
             minValue: 1,
@@ -159,13 +154,12 @@ export const Summary: INodeProperties[] = [
         displayName: 'Max Characters',
         name: 'max_characters',
         type: 'number',
-        required: false,
         default: 200,
         displayOptions: {
             show: {
                 operation: ['summary'],
             },
         },
-        description: 'The maximum number of characters in the generated summary.',
+        description: 'The maximum number of characters in the generated summary',
     },
 ]; 

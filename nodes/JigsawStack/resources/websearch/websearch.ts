@@ -1,9 +1,7 @@
 import {
 	INodeProperties,
-	IExecuteSingleFunctions,
-	INodeExecutionData,
-	IN8nHttpFullResponse,
 } from 'n8n-workflow';
+import { returnResponse } from '../../utils';
 
 export const WebSearch: INodeProperties[] = [
 	{
@@ -69,7 +67,7 @@ export const WebSearch: INodeProperties[] = [
 				operation: ['search-web'],
 			},
 		},
-		description: 'Include AI powered overview in the search results',
+		description: 'Whether to include AI powered overview in the search results',
 	},
 	{
 		displayName: 'Safe Search',
@@ -98,7 +96,7 @@ export const WebSearch: INodeProperties[] = [
 				operation: ['search-web'],
 			},
 		},
-		description: 'Spell check the search query',
+		description: 'Whether to spell check the search query',
 	},
 	{
 		displayName: 'BYO URLs',
@@ -126,7 +124,7 @@ export const WebSearch: INodeProperties[] = [
 				operation: ['search-web'],
 			},
 		},
-		description: 'Toggle deep research mode',
+		description: 'Whether to toggle deep research mode',
 	},
 	{
 		displayName: 'Deep Research Config',
@@ -143,9 +141,6 @@ export const WebSearch: INodeProperties[] = [
 	},
 ];
 
-async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-	return items.map(() => ({ json: responseData.body }));
-}
 
 
 

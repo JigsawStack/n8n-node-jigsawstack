@@ -19,7 +19,7 @@ export const Sentiment: INodeProperties[] = [
         name: 'Analyze Sentiment',
         value: 'analyze-sentiment',
         action: 'Analyze sentiment',
-        description: 'Perform line by line sentiment analysis on any text with detailed emotion detection.',
+        description: 'Perform line by line sentiment analysis on any text with detailed emotion detection',
         routing: {
           request: {
             method: 'POST',
@@ -43,7 +43,7 @@ export const Sentiment: INodeProperties[] = [
     name: 'text',
     type: 'string',
     required: true,
-    default: [],
+    default: '',
     displayOptions: {
       show: {
         operation: ['analyze-sentiment'],

@@ -17,7 +17,7 @@ export const Vocr: INodeProperties[] = [
             {
                 name: 'Process Image',
                 value: 'process-image',
-                action: 'Process image with vOCR',
+                action: 'Process image with v ocr',
                 description: 'Process an image using vOCR to recognize and extract data',
                 routing: {
                     request: {
@@ -108,7 +108,6 @@ export const Vocr: INodeProperties[] = [
         displayName: 'Page Range',
         name: 'page_range',
         type: 'collection',
-        required: false,
         default: {},
         displayOptions: {
             show: {

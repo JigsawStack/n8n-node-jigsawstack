@@ -19,7 +19,7 @@ export const STT: INodeProperties[] = [
                 name: 'Speech to Text',
                 value: 'speech-to-text',
                 action: 'Transcribe video and audio to text',
-                description: 'Transcribe video and audio files with ease leveraging Whisper large V3 AI model.',
+                description: 'Transcribe video and audio files with ease leveraging Whisper large V3 AI model',
                 routing: {
                     request: {
                         method: 'POST',
@@ -99,7 +99,6 @@ export const STT: INodeProperties[] = [
         displayName: 'Language',
         name: 'language',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -112,33 +111,30 @@ export const STT: INodeProperties[] = [
         displayName: 'Translate',
         name: 'translate',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
                 operation: ['speech-to-text'],
             },
         },
-        description: 'Translate the content into English (or the specified language if language is provided).',
+        description: 'Whether to translate the content into English (or the specified language if language is provided)',
     },
     {
         displayName: 'By Speaker',
         name: 'by_speaker',
         type: 'boolean',
-        required: false,
         default: false,
         displayOptions: {
             show: {
                 operation: ['speech-to-text'],
             },
         },
-        description: 'Identify and separate different speakers in the audio file.',
+        description: 'Whether to identify and separate different speakers in the audio file',
     },
     {
         displayName: 'Webhook URL',
         name: 'webhook_url',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -151,7 +147,6 @@ export const STT: INodeProperties[] = [
         displayName: 'Batch Size',
         name: 'batch_size',
         type: 'number',
-        required: false,
         default: 30,
         displayOptions: {
             show: {

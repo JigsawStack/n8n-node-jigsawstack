@@ -17,7 +17,7 @@ import {
         {
           name: 'Spell Check',
           value: 'spell-check',
-          action: 'Spell Check',
+          action: 'Spell check',
           description: 'Check the spelling of the text',
           routing: {
             request: {
@@ -43,7 +43,7 @@ import {
       name: 'text',
       type: 'string',
       required: true,
-      default: [],
+      default: '',
       displayOptions: {
         show: {
           operation: ['spell-check'],
@@ -52,7 +52,7 @@ import {
       description: 'The text to check',
     },
     {
-        displayName: 'language code',
+        displayName: 'Language Code',
         name: 'language_code',
         type: 'string',
         required: true,

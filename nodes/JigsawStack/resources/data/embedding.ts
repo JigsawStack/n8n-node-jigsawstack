@@ -19,7 +19,7 @@ export const Embedding: INodeProperties[] = [
         name: 'Generate Embedding',
         value: 'generate-embedding',
         action: 'Generate embedding',
-        description: 'Generate vector embeddings from various content types including text, images, audio, and PDF files.',
+        description: 'Generate vector embeddings from various content types including text, images, audio, and PDF files',
         routing: {
           request: {
             method: 'POST',
@@ -126,11 +126,11 @@ export const Embedding: INodeProperties[] = [
     name: 'type',
     type: 'options',
     options: [
+      { name: 'Audio', value: 'audio' },
+      { name: 'Image', value: 'image' },
+      { name: 'PDF', value: 'pdf' },
       { name: 'Text', value: 'text' },
       { name: 'Text Other', value: 'text-other' },
-      { name: 'Image', value: 'image' },
-      { name: 'Audio', value: 'audio' },
-      { name: 'PDF', value: 'pdf' },
     ],
     required: true,
     default: 'text',

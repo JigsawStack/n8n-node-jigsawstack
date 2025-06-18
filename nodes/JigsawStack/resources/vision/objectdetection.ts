@@ -67,7 +67,6 @@ export const ObjectDetection: INodeProperties[] = [
         displayName: 'Image URL',
         name: 'url',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -81,7 +80,6 @@ export const ObjectDetection: INodeProperties[] = [
         displayName: 'File Store Key',
         name: 'file_store_key',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {

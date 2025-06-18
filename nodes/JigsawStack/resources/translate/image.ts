@@ -69,7 +69,6 @@ export const TranslateImage: INodeProperties[] = [
         displayName: 'Image URL',
         name: 'url',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -83,7 +82,6 @@ export const TranslateImage: INodeProperties[] = [
         displayName: 'File Store Key',
         name: 'file_store_key',
         type: 'string',
-        required: false,
         default: '',
         displayOptions: {
             show: {
@@ -118,15 +116,15 @@ export const TranslateImage: INodeProperties[] = [
         },
         options: [
           {
-            name: "base64",
+            name: 'Base64',
             value: "base64",
           },
           {
-            name: "url",
+            name: 'Url',
             value: "url",
           },
           {
-            name: "binary",
+            name: 'Binary',
             value: "binary",
           },
         ],

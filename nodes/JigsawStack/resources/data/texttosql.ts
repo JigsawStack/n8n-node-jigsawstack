@@ -19,7 +19,7 @@ import { returnResponse } from '../../utils';
           name: 'Convert to SQL',
           value: 'convert-to-sql',
           action: 'Convert natural language to SQL',
-          description: 'Convert natural language to SQL queries for various database types.',
+          description: 'Convert natural language to SQL queries for various database types',
           routing: {
             request: {
               method: 'POST',
@@ -87,7 +87,7 @@ import { returnResponse } from '../../utils';
       name: 'promptSource',
       type: 'options',
       required: true,
-      default: 'text',
+      default: 'sql_schema',
       displayOptions: {
         show: {
           operation: ['convert-to-sql'],
