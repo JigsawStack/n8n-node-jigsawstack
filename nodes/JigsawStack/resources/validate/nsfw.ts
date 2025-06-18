@@ -1,10 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
   } from 'n8n-workflow';
-  
+  import { returnResponse } from '../../utils';
   export const NSFW: INodeProperties[] = [
     {
       displayName: 'Operation',
@@ -54,7 +51,3 @@ import {
       description: 'The image URL to validate',
     },
   ];
-  
-  async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-    return items.map(() => ({ json: responseData.body }));
-  } 

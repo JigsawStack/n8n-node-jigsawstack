@@ -44,11 +44,10 @@ export const TranslateText: INodeProperties[] = [
         displayName: 'Text',
         name: 'text',
         type: 'string',
-        // 17th June 2025: thexperssion is not supported for multiple values, so exploring other options to solve this issue 
-        // typeOptions: {
-        //     multipleValues: true,
-        //     multipleValueButtonText: 'Add Text',
-        // },
+        typeOptions: {
+            multipleValues: true,
+            multipleValueButtonText: 'Add Text',
+        },
         required: true,
         default: [],
         displayOptions: {
