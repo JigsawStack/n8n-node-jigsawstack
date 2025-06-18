@@ -1,5 +1,5 @@
 {
-  "name": "JigsawStack n8n node",
+  "name": "n8n-node-jigsawstack",
   "version": "0.0.1",
   "description": "JigsawStack API integration for n8n",
   "keywords": [
@@ -50,5 +50,9 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "sqlite3": "^5.1.7"
   }
 }

@@ -15,6 +15,7 @@ import { WebSuggestion } from './websearch/websuggestion';
 import { WebScrape } from './scrape/webscrape';
 import { Vocr } from './vision/vocr';
 import { ObjectDetection } from './vision/objectdetection';
+import { STT } from './speechtotext/stt';
 
 export const resources = [
     ...TranslateText,   
@@ -22,6 +23,7 @@ export const resources = [
     ...Embedding,
     ...Sentiment,
     ...TTS,
+    ...STT,
     ...Image,
     ...NSFW,
     ...Profanity,
