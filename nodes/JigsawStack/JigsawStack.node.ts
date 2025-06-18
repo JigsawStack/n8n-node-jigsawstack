@@ -64,6 +64,7 @@ export class JigsawStack implements INodeType {
           { name: 'Process Image', value: 'process-image' },
           { name: 'Object Detection', value: 'object-detection' },
           { name: 'Speech to Text', value: 'speech-to-text' },
+          { name: 'Translate Image', value: 'translate-image' },
         ],
         default: 'translate-text',
       },

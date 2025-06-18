@@ -1,10 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
 } from 'n8n-workflow';
-import { Buffer } from 'buffer';
+import { returnResponse } from '../../utils';
 
 export const TTS: INodeProperties[] = [
     {
@@ -37,7 +34,7 @@ export const TTS: INodeProperties[] = [
                     },
                     output: {
                         postReceive: [
-                            returnTTSBinary,
+                            returnResponse,
                         ],
                     },
                 },
@@ -2973,86 +2970,3 @@ export const TTS: INodeProperties[] = [
     },
 ];
 
-
-
-// async function returnTTSBinary<PostReceiveAction>(
-//     this: IExecuteSingleFunctions,
-//     items: INodeExecutionData[],
-//     responseData: IN8nHttpFullResponse,
-// ): Promise<INodeExecutionData[]> {
-//     const binary_name = this.getNodeParameter('additionalFields["binary_name"]', 'data') as string;
-//     let file_name = this.getNodeParameter('additionalFields["file_name"]', 'tts_audio') as string;
-//     const operation = this.getNodeParameter('operation') as string;
-
-//     console.log('TTS Binary Processing:');
-//     console.log('- Operation:', operation);
-//     console.log('- Binary Name:', binary_name);
-//     console.log('- Initial File Name:', file_name);
-
-//     // Detect content type from response
-//     const contentType = responseData.headers['content-type'] || responseData.headers['Content-Type'] || '';
-//     let extension = 'mp3';
-//     let mimeType = 'audio/mpeg';
-//     if (String(contentType).includes('wav')) {
-//         extension = 'wav';
-//         mimeType = 'audio/wav';
-//     }
-
-//     // Use appropriate filename for TTS operation
-//     if (operation === 'text-to-speech' && file_name === 'tts_audio') {
-//         file_name = `text_to_speech.${extension}`;
-//         console.log('- Final File Name:', file_name);
-//     }
-
-//     // Ensure we have binary data
-//     if (!responseData.body) {
-//         throw new Error('No binary data received from the TTS service');
-//     }
-
-//     // Convert the response body to a Buffer if it's not already
-
-//     let binaryBuffer: Buffer;
-
-//     if (Buffer.isBuffer(responseData.body)) {
-//         // Already a buffer, use as is
-//         binaryBuffer = responseData.body;
-//     } else if (typeof responseData.body === 'string') {
-//         // Check if this string is actually base64 (sometimes APIs do this)
-//         const isBase64 = /^[A-Za-z0-9+/=]+$/.test(responseData.body.trim());
-//         if (isBase64) {
-//             console.log('- Interpreting body as base64 string');
-//             binaryBuffer = Buffer.from(responseData.body, 'base64');
-//         } else {
-//             console.log('- Interpreting body as binary string');
-//             binaryBuffer = Buffer.from(responseData.body, 'binary');
-//         }
-//     } else {
-//         // Fallback: try generic conversion
-//         binaryBuffer = Buffer.from(responseData.body as any);
-//     }
-    
-
-//     const binaryData = await this.helpers.prepareBinaryData(
-//         binaryBuffer,
-//         file_name,
-//         mimeType
-//     );
-
-
-//     console.log('- Binary Data Prepared Successfully');
-//     console.log('- Response Headers:', responseData.headers);
-
-//     return items.map(() => ({ json: responseData.headers, binary: { [binary_name]: binaryData } }));
-// }
-
-async function returnTTSBinary<PostReceiveAction>( this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse ): Promise<INodeExecutionData[]> {
-	const operation = this.getNodeParameter('operation') as string;
-
-	const binaryData = await this.helpers.prepareBinaryData(
-		responseData.body as Buffer,
-		`audio.${operation}.mp3`,
-		'audio/mp3',
-	);
-
-	return items.map(() => ({ json: responseData.headers, binary: { ['data']: binaryData } }));
-}

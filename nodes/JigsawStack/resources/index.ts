@@ -1,4 +1,5 @@
-import {  TranslateText } from './translate/text';
+import { TranslateText } from './translate/text';
+import { TranslateImage } from './translate/image';
 import { WebSearch } from './websearch/websearch';
 import { Embedding } from './data/embedding';
 import { Sentiment } from './coreai/sentiment';
@@ -18,7 +19,7 @@ import { ObjectDetection } from './vision/objectdetection';
 import { STT } from './speechtotext/stt';
 
 export const resources = [
-    ...TranslateText,   
+    ...TranslateText,
     ...WebSearch,
     ...Embedding,
     ...Sentiment,
@@ -35,5 +36,6 @@ export const resources = [
     ...WebSuggestion,
     ...WebScrape,
     ...Vocr,
+    ...TranslateImage,
     ...ObjectDetection,
 ];      

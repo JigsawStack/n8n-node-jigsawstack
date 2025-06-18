@@ -1,10 +1,7 @@
 import {
   INodeProperties,
-  IExecuteSingleFunctions,
-  INodeExecutionData,
-  IN8nHttpFullResponse,
 } from 'n8n-workflow';
-import { Buffer } from 'buffer';
+import { returnResponse } from '../../utils';
 
 export const Image: INodeProperties[] = [
   {
@@ -174,30 +171,3 @@ export const Image: INodeProperties[] = [
 ];
 
 
-async function returnResponse(
-  this: IExecuteSingleFunctions,
-  items: INodeExecutionData[],
-  responseData: IN8nHttpFullResponse,
-): Promise<INodeExecutionData[]> {
-
-  const buffer = Buffer.isBuffer(responseData.body)
-    ? responseData.body
-    : Buffer.from(responseData.body as any);
-
-  const contentType = responseData.headers['content-type'] || 'image/png';
-  const fileExtension = contentType.toString().includes('svg') ? 'svg' : 'png';
-  const fileName = `generated_image.${fileExtension}`;
-
-  const binaryData = await this.helpers.prepareBinaryData(
-    buffer,
-    fileName,
-    contentType.toString(),
-  );
-
-  return items.map(() => ({
-    json: { headers: responseData.headers },
-    binary: {
-      data: binaryData,
-    },
-  }));
-}
