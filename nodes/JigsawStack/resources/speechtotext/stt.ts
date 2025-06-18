@@ -1,9 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
-} from 'n8n-workflow';
+} from  'n8n-workflow';
+import { returnResponse } from '../../utils';
 
 export const STT: INodeProperties[] = [
     {
@@ -20,8 +18,8 @@ export const STT: INodeProperties[] = [
             {
                 name: 'Speech to Text',
                 value: 'speech-to-text',
-                action: 'Transcribe audio to text',
-                description: 'Convert audio files into text using AI speech recognition',
+                action: 'Transcribe video and audio to text',
+                description: 'Transcribe video and audio files with ease leveraging Whisper large V3 AI model.',
                 routing: {
                     request: {
                         method: 'POST',
@@ -30,6 +28,10 @@ export const STT: INodeProperties[] = [
                             url: '={{$parameter.audioSource === "url" ? $parameter.url : undefined}}',
                             file_store_key: '={{$parameter.audioSource === "file_store_key" ? $parameter.file_store_key : undefined}}',
                             language: '={{$parameter.language && $parameter.language !== "" ? $parameter.language : undefined}}',
+                            translate: '={{$parameter.translate !== undefined ? $parameter.translate : undefined}}',
+                            by_speaker: '={{$parameter.by_speaker !== undefined ? $parameter.by_speaker : undefined}}',
+                            webhook_url: '={{$parameter.webhook_url && $parameter.webhook_url !== "" ? $parameter.webhook_url : undefined}}',
+                            batch_size: '={{$parameter.batch_size && $parameter.batch_size > 0 ? $parameter.batch_size : undefined}}',
                         },
                     },
                     output: {
@@ -159,11 +161,3 @@ export const STT: INodeProperties[] = [
         description: 'The batch size to return. Maximum value is 40. This controls how the audio is chunked for processing.',
     },
 ];
-
-async function returnResponse<PostReceiveAction>(
-    this: IExecuteSingleFunctions,
-    items: INodeExecutionData[],
-    responseData: IN8nHttpFullResponse,
-): Promise<INodeExecutionData[]> {
-    return items.map(() => ({ json: responseData.body }));
-}
