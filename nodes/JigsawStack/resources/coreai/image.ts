@@ -34,6 +34,8 @@ export const Image: INodeProperties[] = [
               url: '={{$parameter.url ? $parameter.url : undefined}}',
               file_store_key: '={{$parameter.file_store_key}}',
               advance_config: '={{JSON.parse($parameter.advance_config)}}',
+              return_type: '={{$parameter.return_type}}',
+
             },
           },
           output: {
@@ -56,6 +58,32 @@ export const Image: INodeProperties[] = [
         operation: ['image-generation'],
       },
     },
+  },
+  {
+    displayName: "Return Type",
+    name: "return_type",
+    type: "options",
+    default: "url",
+    displayOptions: {
+      show: {
+        operation: ['image-generation'],
+      },
+    },
+    options: [
+      {
+        name: "base64",
+        value: "base64",
+      },
+      {
+        name: "url",
+        value: "url",
+      },
+      {
+        name: "binary",
+        value: "binary",
+      },
+    ],
+    description: 'Return format for the image',
   },
   {
     displayName: 'Aspect Ratio',

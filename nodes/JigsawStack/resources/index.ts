@@ -14,6 +14,7 @@ import { Prediction } from './data/prediction';
 import { TextToSql } from './data/texttosql';
 import { WebSuggestion } from './websearch/websuggestion';
 import { WebScrape } from './scrape/webscrape';
+import { HtmlToAny } from './scrape/htmltoany';
 import { Vocr } from './vision/vocr';
 import { ObjectDetection } from './vision/objectdetection';
 import { STT } from './speechtotext/stt';
@@ -35,6 +36,7 @@ export const resources = [
     ...TextToSql,
     ...WebSuggestion,
     ...WebScrape,
+    ...HtmlToAny,
     ...Vocr,
     ...TranslateImage,
     ...ObjectDetection,

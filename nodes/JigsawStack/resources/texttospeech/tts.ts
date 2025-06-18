@@ -27,9 +27,8 @@ export const TTS: INodeProperties[] = [
                         body: {
                             text: '={{$parameter.text}}',
                             accent: '={{$parameter.accent === "other" ? $parameter.accent_custom : $parameter.accent}}',
-                            speaker_clone_url: '={{$parameter.speaker_clone_url}}',
-                            speaker_clone_file_store_key: '={{$parameter.speaker_clone_file_store_key}}',
                             voice_id: '={{$parameter.voice_id}}',
+                            return_type: '={{$parameter.return_type}}',
                         },
                     },
                     output: {
@@ -2945,16 +2944,30 @@ export const TTS: INodeProperties[] = [
         description: 'Direct URL to an audio file for voice cloning',
     },
     {
-        displayName: 'Speaker Clone File Store Key',
-        name: 'speaker_clone_file_store_key',
-        type: 'string',
-        default: '',
+        displayName: "Return Type",
+        name: "return_type",
+        type: "options",
+        default: "url",
         displayOptions: {
             show: {
                 operation: ['text-to-speech'],
             },
         },
-        description: 'File store key for a voice clone sample',
+        options: [
+            {
+            name: "base64",
+            value: "base64",
+        },
+            {
+            name: "url",
+            value: "url",
+        },
+        {
+            name: "binary",
+            value: "binary",
+        },
+    ],
+    description: 'Return format for the audio file',
     },
     {
         displayName: 'Voice ID',

@@ -28,6 +28,7 @@ export const TranslateImage: INodeProperties[] = [
                             url: '={{$parameter.url ? $parameter.url : undefined }}',
                             file_store_key: '={{$parameter.file_store_key ? $parameter.file_store_key : undefined}}',
                             target_language: '={{$parameter.target_language}}',
+                            return_type: '={{$parameter.return_type}}',
                         },
                     },
                     output: {
@@ -105,6 +106,32 @@ export const TranslateImage: INodeProperties[] = [
         },
         description: 'The target language code (e.g., "es" for Spanish)',
     },
+    {
+        displayName: "Return Type",
+        name: "return_type",
+        type: "options",
+        default: "url",
+        displayOptions: {
+          show: {
+            operation: ['translate-image'],
+          },
+        },
+        options: [
+          {
+            name: "base64",
+            value: "base64",
+          },
+          {
+            name: "url",
+            value: "url",
+          },
+          {
+            name: "binary",
+            value: "binary",
+          },
+        ],
+        description: 'Return format for the translated image',
+      },
 ];
 
 
