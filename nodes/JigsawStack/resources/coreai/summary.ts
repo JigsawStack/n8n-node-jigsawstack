@@ -1,14 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
 } from 'n8n-workflow';
-
-
-async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-    return items.map(() => ({ json: responseData.body }));
-}
+import { returnResponse } from '../../utils';
 
 export const Summary: INodeProperties[] = [
     {
@@ -26,7 +19,7 @@ export const Summary: INodeProperties[] = [
                 name: 'Summary',
                 value: 'summary',
                 action: 'Summary',
-                description: 'Summarize the text',
+                description: 'Generate concise, intelligent summaries of text or documents with AI',
                 routing: {
                     request: {
                         method: 'POST',
@@ -51,6 +44,33 @@ export const Summary: INodeProperties[] = [
         default: 'summary',
     },
     {
+        displayName: 'Summary Source',
+        name: 'summarySource',
+        type: 'options',
+        required: true,
+        default: 'text',
+        displayOptions: {
+            show: {
+                operation: ['summary'],
+            },
+        },
+        options: [
+            {
+                name: 'Text',
+                value: 'text',
+            },
+            {
+                name: 'URL',
+                value: 'url',
+            },
+            {
+                name: 'File Store Key',
+                value: 'file_store_key',
+            },
+        ],
+        description: 'Choose the source of the summary',
+    },
+    {
         displayName: 'Text',
         name: 'text',
         type: 'string',
@@ -59,6 +79,7 @@ export const Summary: INodeProperties[] = [
         displayOptions: {
             show: {
                 operation: ['summary'],
+                summarySource: ['text'],
             },
         },
         description: 'The text content to summarize. Maximum 300,000 characters. Not required if url or file_store_key is specified.',
@@ -72,6 +93,7 @@ export const Summary: INodeProperties[] = [
         displayOptions: {
             show: {
                 operation: ['summary'],
+                summarySource: ['url'],
             },
         },
         description: 'URL of a PDF document to summarize. Not required if text or file_store_key is provided.',
@@ -85,9 +107,10 @@ export const Summary: INodeProperties[] = [
         displayOptions: {
             show: {
                 operation: ['summary'],
+                summarySource: ['file_store_key'],
             },
         },
-        description: 'The key of a stored PDF document to summarize from Jigsawstack File Storage. Not required if text or url is provided.',
+        description: 'The key of a stored document to summarize from Jigsawstack File Storage. Not required if text or url is provided.',
     },
     {
         displayName: 'Type',
@@ -112,7 +135,7 @@ export const Summary: INodeProperties[] = [
                 operation: ['summary'],
             },
         },
-        description: 'The format of the summary',
+        description: 'The format of the summary: - text: Returns a continuous paragraph summary - points: Returns bullet points as an array of strings',
     },
     {
         displayName: 'Max Points',

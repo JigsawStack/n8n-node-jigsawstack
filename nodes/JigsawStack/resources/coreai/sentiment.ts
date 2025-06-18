@@ -1,9 +1,7 @@
 import {
   INodeProperties,
-  IExecuteSingleFunctions,
-  INodeExecutionData,
-  IN8nHttpFullResponse,
 } from 'n8n-workflow';
+import { returnResponse } from '../../utils';
 
 export const Sentiment: INodeProperties[] = [
   {
@@ -21,7 +19,7 @@ export const Sentiment: INodeProperties[] = [
         name: 'Analyze Sentiment',
         value: 'analyze-sentiment',
         action: 'Analyze sentiment',
-        description: 'Analyze the sentiment of text or content',
+        description: 'Perform line by line sentiment analysis on any text with detailed emotion detection.',
         routing: {
           request: {
             method: 'POST',
@@ -54,7 +52,3 @@ export const Sentiment: INodeProperties[] = [
     description: 'The text to analyze for sentiment',
   },
 ];
-
-async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-  return items.map(() => ({ json: responseData.body }));
-} 
