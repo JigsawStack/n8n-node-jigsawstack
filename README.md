@@ -68,7 +68,7 @@ To use this node, you need to:
    - Click "New"
    - Select "JigsawStack API"
    - Enter your API key
-
+    
 ## Usage
 
 1. Add the JigsawStack node to your workflow
