@@ -1,9 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
   } from 'n8n-workflow';
+import { returnResponse } from '../../utils';
   
   export const TextToSql: INodeProperties[] = [
     {
@@ -21,7 +19,7 @@ import {
           name: 'Convert to SQL',
           value: 'convert-to-sql',
           action: 'Convert natural language to SQL',
-          description: 'Convert natural language to SQL queries',
+          description: 'Convert natural language to SQL queries for various database types.',
           routing: {
             request: {
               method: 'POST',
@@ -85,6 +83,29 @@ import {
       description: 'The database type to generate SQL for',
     },
     {
+      displayName: 'Prompt Source',
+      name: 'promptSource',
+      type: 'options',
+      required: true,
+      default: 'text',
+      displayOptions: {
+        show: {
+          operation: ['convert-to-sql'],
+        },
+      },
+      options: [
+        {
+          name: 'SQL Schema',
+          value: 'sql_schema',
+        },
+        {
+          name: 'File Store Key',
+          value: 'file_store_key',
+        },
+      ],
+      description: 'Choose the source of the prompt',
+    },
+    {
       displayName: 'SQL Schema',
       name: 'sql_schema',
       type: 'string',
@@ -92,6 +113,7 @@ import {
       displayOptions: {
         show: {
           operation: ['convert-to-sql'],
+          promptSource: ['sql_schema'],
         },
       },
       description: 'The database schema where the query will be run',
@@ -107,15 +129,11 @@ import {
       displayOptions: {
         show: {
           operation: ['convert-to-sql'],
+          promptSource: ['file_store_key'],
         },
       },
       description: 'The key used to store the database schema on Jigsawstack fileStorage',
     },
   ];
-  
-  async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-    return items.map(() => ({ json: responseData.body }));
-  }
-  
-  
+
   

@@ -1,9 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
   } from 'n8n-workflow';
+import { returnResponse } from '../../utils';
   
   export const Prediction: INodeProperties[] = [
     {
@@ -21,7 +19,7 @@ import {
           name: 'Make Prediction',
           value: 'make-prediction',
           action: 'Make prediction',
-          description: 'Forecast time series data with one simple API',
+          description: 'Forecast a wide range of time series data in seconds with one simple API and no data training.',
           routing: {
             request: {
               method: 'POST',
@@ -75,8 +73,3 @@ import {
       },
     },
   ];
-  
-  async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-    return items.map(() => ({ json: responseData.body }));
-  }
-  

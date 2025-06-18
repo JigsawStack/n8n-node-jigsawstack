@@ -1,9 +1,7 @@
 import {
   INodeProperties,
-  IExecuteSingleFunctions,
-  INodeExecutionData,
-  IN8nHttpFullResponse,
 } from 'n8n-workflow';
+import { returnResponse } from '../../utils';
 
 export const Embedding: INodeProperties[] = [
   {
@@ -21,15 +19,15 @@ export const Embedding: INodeProperties[] = [
         name: 'Generate Embedding',
         value: 'generate-embedding',
         action: 'Generate embedding',
-        description: 'Generate vector embeddings from various content types',
+        description: 'Generate vector embeddings from various content types including text, images, audio, and PDF files.',
         routing: {
           request: {
             method: 'POST',
             url: '={{"/embedding"}}',
             body: {
               text: '={{$parameter.text}}',
-              url: '={{$parameter.url}}',
-              file_store_key: '={{$parameter.file_store_key}}',
+              url: '={{$parameter.url ? $parameter.url : undefined}}',
+              file_store_key: '={{$parameter.file_store_key ? $parameter.file_store_key : undefined}}',
               file_content: '={{$parameter.file_content}}',
               type: '={{$parameter.type}}',
               token_overflow_mode: '={{$parameter.token_overflow_mode}}',
@@ -46,6 +44,33 @@ export const Embedding: INodeProperties[] = [
     default: 'generate-embedding',
   },
   {
+    displayName: 'Embedding Source',
+    name: 'embeddingSource',
+    type: 'options',
+    required: true,
+    default: 'text',
+    displayOptions: {
+      show: {
+        operation: ['generate-embedding'],
+      },
+    },
+    options: [
+      {
+        name: 'Text',
+        value: 'text',
+      },
+      {
+        name: 'URL',
+        value: 'url',
+      },
+      {
+        name: 'File Store Key',
+        value: 'file_store_key',
+      },
+    ],
+    description: 'Choose the source of the embedding',
+  },
+  {
     displayName: 'Text',
     name: 'text',
     type: 'string',
@@ -53,9 +78,10 @@ export const Embedding: INodeProperties[] = [
     displayOptions: {
       show: {
         operation: ['generate-embedding'],
+        embeddingSource: ['text'],
       },
     },
-    description: 'The text content to generate embeddings for',
+    description: 'The text content to generate embeddings for. Optional if providing content through another method.',
   },
   {
     displayName: 'URL',
@@ -65,9 +91,10 @@ export const Embedding: INodeProperties[] = [
     displayOptions: {
       show: {
         operation: ['generate-embedding'],
+        embeddingSource: ['url'],
       },
     },
-    description: 'A URL pointing to the resource to generate embeddings for',
+    description: 'A URL pointing to the resource to generate embeddings for. Optional if providing content through another method.',
   },
   {
     displayName: 'File Store Key',
@@ -77,9 +104,10 @@ export const Embedding: INodeProperties[] = [
     displayOptions: {
       show: {
         operation: ['generate-embedding'],
+        embeddingSource: ['file_store_key'],
       },
     },
-    description: 'A key referencing a previously uploaded file in storage',
+    description: 'A key referencing a previously uploaded file in storage. Optional if providing content through another method.',
   },
   {
     displayName: 'File Content',
@@ -131,6 +159,3 @@ export const Embedding: INodeProperties[] = [
   },
 ];
 
-async function returnResponse<PostReceiveAction>(this: IExecuteSingleFunctions, items: INodeExecutionData[], responseData: IN8nHttpFullResponse): Promise<INodeExecutionData[]> {
-  return items.map(() => ({ json: responseData.body }));
-}
