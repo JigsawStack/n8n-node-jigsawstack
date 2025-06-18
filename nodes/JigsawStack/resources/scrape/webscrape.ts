@@ -1,9 +1,7 @@
 import {
     INodeProperties,
-    IExecuteSingleFunctions,
-    INodeExecutionData,
-    IN8nHttpFullResponse,
 } from 'n8n-workflow';
+import { returnResponse } from '../../utils';
 
 export const WebScrape: INodeProperties[] = [
     {
@@ -58,14 +56,38 @@ export const WebScrape: INodeProperties[] = [
         default: 'ai-scrape',
     },
     {
+        displayName: 'Scrape Source',
+        name: 'scrapeSource',
+        type: 'options',
+        required: true,
+        default: 'url',
+        displayOptions: {
+            show: {
+                operation: ['ai-scrape'],
+            },
+        },
+        options: [
+            {
+                name: 'URL',
+                value: 'url',
+            },
+            {
+                name: 'HTML',
+                value: 'html',
+            },
+        ],
+        description: 'Choose the source of the scrape',
+    },
+            {
         displayName: 'URL',
         name: 'url',
         type: 'string',
-        required: true,
+        required: false,
         default: '',
         displayOptions: {
             show: {
                 operation: ['ai-scrape'],
+                scrapeSource: ['url'],
             },
         },
         description: 'URL of the page to scrape. Either url or html is required, but not both.',
@@ -79,6 +101,7 @@ export const WebScrape: INodeProperties[] = [
         displayOptions: {
             show: {
                 operation: ['ai-scrape'],
+                scrapeSource: ['html'],
             },
         },
         description: 'HTML content to scrape. Either url or html is required, but not both.',
@@ -299,11 +322,3 @@ export const WebScrape: INodeProperties[] = [
         description: 'Bring-your-own-proxy configuration (server URL and optional auth credentials)',
     },
 ];
-
-async function returnResponse<PostReceiveAction>(
-    this: IExecuteSingleFunctions,
-    items: INodeExecutionData[],
-    responseData: IN8nHttpFullResponse,
-): Promise<INodeExecutionData[]> {
-    return items.map(() => ({ json: responseData.body }));
-}
