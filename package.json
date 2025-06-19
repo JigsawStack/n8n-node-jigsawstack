@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-jigsawstack",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "JigsawStack API integration for n8n",
   "keywords": [
     "n8n-community-node-package",
