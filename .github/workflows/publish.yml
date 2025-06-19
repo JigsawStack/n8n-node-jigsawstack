@@ -20,6 +20,7 @@ jobs:
           yarn
           yarn add n8n-workflow --no-save
           yarn build
+          yarn remove n8n-workflow
       - name: Publish package NPM
         run: npm publish
         env:
