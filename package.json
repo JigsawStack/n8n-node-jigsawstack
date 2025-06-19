@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-jigsawstack",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JigsawStack API integration for n8n",
   "keywords": [
     "n8n-community-node-package",
@@ -50,7 +50,7 @@
     "prettier": "^3.5.3",
     "typescript": "~5.3.3"
   },
-  "dependencies": {
+  "peerDependencies": {
     "n8n-workflow": "*"
   }
 }
