@@ -18,6 +18,7 @@ jobs:
       - name: Build package
         run: |
           yarn
+          yarn add n8n-workflow
           yarn build
       - name: Publish package NPM
         run: npm publish
