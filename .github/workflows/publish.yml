@@ -18,7 +18,7 @@ jobs:
       - name: Build package
         run: |
           yarn
-          yarn add n8n-workflow
+          yarn add n8n-workflow --no-save
           yarn build
       - name: Publish package NPM
         run: npm publish
